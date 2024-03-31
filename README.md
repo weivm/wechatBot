@@ -1,4 +1,4 @@
-采用基于openwechat微信扫描登陆和gpt自动回复功能
+采用基于openwechat微信扫描登陆和gpt自动回复功能(目前结构比较简单后续会持续优化新功能)
 
 如何启动：
 1. git clone https://github.com/weivm/wechatBot.git
@@ -7,7 +7,7 @@
 4. go run main.go
 5. 自动拉起二维码扫码授权
 
-目前结构比较简单后续会持续优化新功能
+
 
 v1版本目前实现：
 
