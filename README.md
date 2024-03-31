@@ -1,7 +1,7 @@
 采用基于openwechat微信扫描登陆和gpt自动回复功能
 
 如何启动：
-1. https://github.com/weivm/wechatBot.git
+1. git clone https://github.com/weivm/wechatBot.git
 2. cd cmd
 3. 在config.yaml填入自己的key和gpt域名
 4. go run main.go
