@@ -1,6 +1,6 @@
-采用基于openwechat微信扫描登陆和gpt自动回复功能(目前结构比较简单后续会持续优化新功能)
+## 采用基于openwechat微信扫描登陆和gpt自动回复功能
 
-如何启动：
+### 如何启动：
 1. git clone https://github.com/weivm/wechatBot.git
 2. cd cmd
 3. 在config.yaml填入自己的key和gpt域名
@@ -9,7 +9,7 @@
 
 
 
-v1版本目前实现：
+### v1版本目前实现：
 
 1. 添加用户回复功能
 
@@ -19,7 +19,7 @@ v1版本目前实现：
 
 4. 群聊@回复功能
 
-Tip:
-
+#### Tip:
+目前结构比较简单后续会持续优化新功能
 项目中third_party有两个gpt文件一个是自定义中转key请求 另外一个是直接请求
 
