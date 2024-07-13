@@ -22,3 +22,9 @@ const (
 	WechatAddFriendMessage
 	WechatJoinGroupMessage
 )
+
+// openai type
+const (
+	OpenAi = "openai"
+	Azure  = "azure"
+)
