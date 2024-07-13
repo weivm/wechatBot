@@ -13,11 +13,21 @@ import (
 
 type CusAiChatClient struct {
 	client *openai.Client
+	cfg    *configs.Config
 }
 
 func NewCusAiChatClient(cfg *configs.Config) *CusAiChatClient {
-	c := openai.NewClient(cfg.AccessKey)
-	return &CusAiChatClient{client: c}
+	var c *openai.Client
+	if cfg.OpenaiType == constant.OpenAi {
+		c = openai.NewClient(cfg.AccessKey)
+	} else {
+		defaultConfig := openai.DefaultAzureConfig(cfg.AccessKey, cfg.BaseUrl)
+		defaultConfig.AzureModelMapperFunc = func(model string) string {
+			return cfg.EndPoint
+		}
+		c = openai.NewClientWithConfig(defaultConfig)
+	}
+	return &CusAiChatClient{client: c, cfg: cfg}
 }
 
 // todo
@@ -32,7 +42,7 @@ func (n *CusAiChatClient) getType() constant.AiChatType {
 func (n *CusAiChatClient) Reply(ctx context.Context, q string) (string, error) {
 	messages := userQuestionMessage(n.getPrompt(), q)
 	param := openai.ChatCompletionRequest{
-		Model:            openai.GPT3Dot5Turbo,
+		Model:            n.cfg.Model,
 		Messages:         messages,
 		Temperature:      0,
 		TopP:             0.2,
